@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.uchicago.mpcs53013</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>mpcs53013-parent-pom</name>
+  <description>Parent POM to handle things like signing and deploying MPCS53013 artifacts to central repository</description>
+  <developers>
+    <developer>
+      <name>Mike Spertus</name>
+      <email>mike@spertus.com</email>
+    </developer>
+  </developers>
+  <scm>
+	<url>https://github.com/mspertus/Big-Data-tutorial/parent</url>
+  </scm>
+  
+  <licenses>
+    <license>
+      <name>The MIT License</name>
+      <url>http://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.sonatype.plugins</groupId>
+  			<artifactId>nexus-staging-maven-plugin</artifactId>
+  			<version>1.6.6</version>
+			<extensions>true</extensions>
+			<configuration>
+				<serverId>ossrh</serverId>
+				<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+				<autoReleaseAfterClose>false</autoReleaseAfterClose>
+			</configuration>
+  		</plugin>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-gpg-plugin</artifactId>
+  			<version>1.6</version>
+			<executions>
+				<execution>
+					<id>sign-artifacts</id>
+					<phase>verify</phase>
+					<goals>
+						<goal>sign</goal>
+					</goals>
+				</execution>
+			</executions>
+  		</plugin>
+  	</plugins>
+  </build>
+  <url>https://github.com/mspertus/Big-Data-tutorial</url>
+</project>
