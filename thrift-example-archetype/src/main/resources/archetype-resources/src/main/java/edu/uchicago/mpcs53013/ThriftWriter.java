@@ -1,4 +1,4 @@
-package edu.uchicago.mpcs53013.webAnalytics;
+package edu.uchicago.mpcs53013;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +13,7 @@ import org.apache.thrift.transport.TIOStreamTransport;
 
 /**
  * Simple class that makes it easy to write Thrift objects to disk.
+ * @see http://joelpm.com/2009/02/05/thrift-writing-thrift-objects-to-disk-with-java.html
  * @author Joel Meyer
  */
 public class ThriftWriter {

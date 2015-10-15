@@ -24,9 +24,9 @@
   <artifactId>thrift-example-archetype</artifactId>
   <version>1.0.0</version>
   <packaging>maven-archetype</packaging>
-  <name>Thrift Archetype</name>
+  <name>Thrift Example Archetype</name>
   <url>http://edu.uchicago.mpcs53013</url>
-
+  <description>Creates an example program that serializes thrift logins</description>
   <parent>
     <groupId>edu.uchicago.mpcs53013</groupId>
     <artifactId>parent</artifactId>
