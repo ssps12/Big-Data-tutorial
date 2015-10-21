@@ -17,6 +17,14 @@
   <scm>
     <url>https://github.com/mspertus/Big-Data-tutorial</url>
   </scm>
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>Use apache license because we are including Apache Hadoop example</comments>
+    </license>
+  </licenses>
   <description>Create the WordCount example from the Hadoop docs</description>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>

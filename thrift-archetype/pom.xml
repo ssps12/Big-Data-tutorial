@@ -22,7 +22,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.uchicago.mpcs53013</groupId>
   <artifactId>thrift-archetype</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <packaging>maven-archetype</packaging>
   <name>Thrift Archetype</name>
   <url>http://edu.uchicago.mpcs53013</url>
@@ -39,7 +39,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+  <description>Example program to write thrift from local file system</description>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <extensions>
