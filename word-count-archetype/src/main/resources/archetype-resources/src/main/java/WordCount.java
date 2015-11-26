@@ -49,6 +49,7 @@ public class WordCount {
 
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
+    conf.addResource(new Path("/etc/hadoop/conf/core-site.xml"));
     Job job = Job.getInstance(conf, "word count");
     job.setJarByClass(WordCount.class);
     job.setMapperClass(TokenizerMapper.class);
