@@ -1,10 +1,10 @@
-thrift-archetype-quickstart
+hdfs-ingest-weather-archetype-quickstart
 ===========================
 
 * To install the archetype in a local Maven repository:
 
 ```bash
-    $ cd thrift-archetype
+    $ cd hdfs-ingest-weather-archetype
     $ mvn install
     $ cd ..
 ```
@@ -14,7 +14,7 @@ thrift-archetype-quickstart
 ```bash
     $ mvn archetype:generate \    
         -DarchetypeGroupId=com.nardoz \        
-        -DarchetypeArtifactId=thrift-archetype \
+        -DarchetypeArtifactId=hdfs-ingest-weather-archetype \
         -DarchetypeVersion=1.0.0 \
         -DgroupId=com.mycompany \
         -DartifactId=myapp \

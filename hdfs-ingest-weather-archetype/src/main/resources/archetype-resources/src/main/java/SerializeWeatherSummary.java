@@ -19,14 +19,12 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.SequenceFile;
+import org.apache.hadoop.io.SequenceFile.CompressionType;
 import org.apache.hadoop.io.SequenceFile.Writer;
-import org.apache.hadoop.io.Text;
 import org.apache.thrift.TException;
 import org.apache.thrift.TSerializer;
 import org.apache.thrift.protocol.TBinaryProtocol;
-import org.apache.thrift.protocol.TJSONProtocol;
 import org.apache.thrift.protocol.TProtocol;
-import org.apache.thrift.transport.TIOStreamTransport;
 
 import edu.uchicago.mpcs53013.weatherSummary.WeatherSummary;
 
@@ -51,10 +49,12 @@ public class SerializeWeatherSummary {
 					int year = Integer.parseInt(yearMatcher.group(1));
 					if(!yearMap.containsKey(year)) {
 						yearMap.put(year, 
-								    SequenceFile.createWriter(fs, 
-								    		                  finalConf,
-								    		                  new Path("/inputs/thriftWeather/weather-" + Integer.toString(year)),
-								                              IntWritable.class, BytesWritable.class));
+								SequenceFile.createWriter(finalConf,
+										SequenceFile.Writer.file(
+												new Path("/inputs/thriftWeather/weather-" + Integer.toString(year))),
+										SequenceFile.Writer.keyClass(IntWritable.class),
+										SequenceFile.Writer.valueClass(BytesWritable.class),
+										SequenceFile.Writer.compression(CompressionType.NONE)));
 					}
 					return yearMap.get(year);
 				}
