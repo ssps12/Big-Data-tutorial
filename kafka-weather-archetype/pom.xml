@@ -22,7 +22,6 @@
       <name>Apache 2</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
-      <comments>Use apache license because we are including Apache Hadoop example</comments>
     </license>
   </licenses>
   <description>Ingest real-time weather data into a Kafka topic</description>
