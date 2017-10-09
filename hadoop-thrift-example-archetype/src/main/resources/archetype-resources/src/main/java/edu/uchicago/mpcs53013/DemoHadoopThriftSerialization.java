@@ -14,7 +14,7 @@ public class DemoHadoopThriftSerialization {
 	public static void main(String[] args) {
 		try {
 			Configuration conf = new Configuration();
-			conf.addResource(new Path("/etc/hadoop/conf/core-site.xml"));
+			conf.addResource(new Path("/home/mpcs53013/hadoop/etc/hadoop/core-site.xml"));
 			String serializations = conf.get("io.serializations").trim();
 			String delim = serializations.isEmpty() ? "" : ",";
 			conf.set("io.serializations", serializations + delim + StudentSerialization.class.getName());
