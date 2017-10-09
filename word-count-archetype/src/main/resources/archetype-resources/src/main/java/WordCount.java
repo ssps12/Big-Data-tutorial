@@ -49,11 +49,10 @@ public class WordCount {
 
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
-    conf.addResource(new Path("/etc/hadoop/conf/core-site.xml"));
+    conf.addResource(new Path("/home/mpcs53013/hadoop/etc/hadoop/core-site.xml"));
     Job job = Job.getInstance(conf, "word count");
     job.setJarByClass(WordCount.class);
     job.setMapperClass(TokenizerMapper.class);
-    job.setCombinerClass(IntSumReducer.class);
     job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
