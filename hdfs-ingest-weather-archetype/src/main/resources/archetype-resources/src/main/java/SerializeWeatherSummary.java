@@ -33,8 +33,8 @@ public class SerializeWeatherSummary {
 	public static void main(String[] args) {
 		try {
 			Configuration conf = new Configuration();
-			conf.addResource(new Path("/etc/hadoop/conf/core-site.xml"));
-			conf.addResource(new Path("/etc/hadoop/conf/hdfs-site.xml"));
+			conf.addResource(new Path("/home/mpcs53013/hadoop/etc/hadoop/core-site.xml"));
+			conf.addResource(new Path("/home/mpcs53013/hadoop/etc/hadoop/hdfs-site.xml"));
 			final Configuration finalConf = new Configuration(conf);
 			final FileSystem fs = FileSystem.get(conf);
 			final TSerializer ser = new TSerializer(new TBinaryProtocol.Factory());
