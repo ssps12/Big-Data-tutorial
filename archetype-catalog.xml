@@ -297,5 +297,12 @@
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Create a Spark Scala WordCount program similar to that in O'Reilly Learning Spark book</description>
     </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>spark-scala-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala program</description>
+    </archetype>
   </archetypes>
 </archetype-catalog>
