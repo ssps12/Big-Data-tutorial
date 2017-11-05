@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-catalog xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd"
+		   xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0"
+		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <archetypes>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-archetype</artifactId>
+      <version>1.1.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-example-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that serializes thrift logins</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hadoop-thrift-example-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that serializes thrift students to HDFS sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>word-count-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create the WordCount example from the Hadoop docs</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-archetype</artifactId>
+      <version>1.2.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Example program to write thrift from local file system</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hadoop-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Hadoop client application including an UberJar</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>word-count-archetype</artifactId>
+      <version>1.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create the WordCount example from the Hadoop docs</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>word-count-archetype</artifactId>
+      <version>1.0.2</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create the WordCount example from the Hadoop docs</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hdfs-ingest-weather-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that reads NOAA weather and serializes
+      to HDFS Thrift sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hdfs-ingest-weather-archetype</artifactId>
+      <version>1.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that reads NOAA weather and serializes
+      to HDFS Thrift sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>storm-word-count-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Modified version of the Word Count program at https://github.com/nathanmarz/storm-starter</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>kafka-weather-archetype</artifactId>
+      <version>1.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Ingest real-time weather data into a Kafka topic</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>kafka-flight-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Ingest real-time flight data from FlightAware into a Kafka topic</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>flight-topology-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads flights from kafka topic and updates HBase
+      with flight information</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>WeatherTopology-archetype</artifactId>
+      <version>1.1.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads weather from kafka topic and stores latest
+      weather for American airports in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>WeatherTopology-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads weather from kafka topic and stores latest
+      weather for American airports in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>WeatherTopology-archetype</artifactId>
+      <version>1.2.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads weather from kafka topic and stores latest
+      weather for American airports in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-example-archetype</artifactId>
+      <version>2.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that serializes thrift logins</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-archetype</artifactId>
+      <version>1.3.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Example program to write thrift from local file system</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hadoop-thrift-example-archetype</artifactId>
+      <version>2.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that serializes thrift students to HDFS sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hadoop-thrift-archetype</artifactId>
+      <version>2.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hdfs-ingest-weather-archetype</artifactId>
+      <version>2.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that reads NOAA weather and serializes
+      to HDFS Thrift sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hdfs-ingest-weather-archetype</artifactId>
+      <version>2.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that reads NOAA weather and serializes
+      to HDFS Thrift sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>word-count-archetype</artifactId>
+      <version>2.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create the WordCount example from the Hadoop docs</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hdfs-ingest-weather-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that reads NOAA weather and serializes
+      to HDFS Thrift sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>storm-word-count-archetype</artifactId>
+      <version>2.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Modified version of the Word Count program at https://github.com/nathanmarz/storm-starter</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>kafka-flight-archetype</artifactId>
+      <version>2.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Ingest real-time flight data from FlightAware into a Kafka topic</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>WeatherTopology-archetype</artifactId>
+      <version>2.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads weather from kafka topic and stores latest
+      weather for American airports in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>WeatherTopology-archetype</artifactId>
+      <version>2.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads weather from kafka topic and stores latest
+      weather for American airports in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>WeatherTopology-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads weather from kafka topic and stores latest
+      weather for American airports in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>flight-topology-archetype</artifactId>
+      <version>2.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads flights from kafka topic and updates HBase
+      with flight information</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>flight-topology-archetype</artifactId>
+      <version>2.0.2</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads flights from kafka topic and updates HBase
+      with flight information</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>kafka-flight-archetype</artifactId>
+      <version>2.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Ingest real-time flight data from FlightAware into a Kafka topic</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>WeatherTopology-archetype</artifactId>
+      <version>2.0.3</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Reads weather from kafka topic and stores latest
+      weather for American airports in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-archetype</artifactId>
+      <version>1.4.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Example program to write thrift from local file system</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hdfs-ingest-weather-archetype</artifactId>
+      <version>2.1.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that reads NOAA weather and serializes
+      to HDFS Thrift sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hadoop-thrift-example-archetype</artifactId>
+      <version>2.1.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that serializes thrift students to HDFS sequence files</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>word-count-archetype</artifactId>
+      <version>2.1.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create the WordCount example from the Hadoop docs</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-example-archetype</artifactId>
+      <version>2.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates an example program that serializes thrift logins</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>spark-scala-word-count-archetype</artifactId>
+      <version>1.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala WordCount program similar to that in O'Reilly Learning Spark book</description>
+    </archetype>
+  </archetypes>
+</archetype-catalog>
