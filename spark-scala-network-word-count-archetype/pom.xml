@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.uchicago.mpcs53013</groupId>
-  <artifactId>spark-scala-archetype</artifactId>
-  <version>1.0.2</version>
+  <artifactId>spark-scala-network-word-count-archetype</artifactId>
+  <version>1.0.0</version>
   <packaging>maven-archetype</packaging>
 
-  <name>Spark Scala Archetype</name>
+  <name>Spark Scala network WordCount Archetype</name>
   <url>http://edu.uchicago.mpcs53013</url>
   <parent>
     <groupId>edu.uchicago.mpcs53013</groupId>
@@ -25,7 +25,7 @@
       <comments>Use apache license because we are including Apache Hadoop example</comments>
     </license>
   </licenses>
-  <description>Create a Spark Scala program. Provides dependencies on Spark, Spark Streaming, and Hive</description>
+  <description>Create a Spark Scala Network WordCount program similar to that included in the Spark examples</description>
 
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
