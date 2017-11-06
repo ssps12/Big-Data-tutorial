@@ -4,7 +4,7 @@
 
   <groupId>edu.uchicago.mpcs53013</groupId>
   <artifactId>spark-scala-archetype</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>maven-archetype</packaging>
 
   <name>Spark Scala Archetype</name>
@@ -25,7 +25,7 @@
       <comments>Use apache license because we are including Apache Hadoop example</comments>
     </license>
   </licenses>
-  <description>Create a Spark Scala program</description>
+  <description>Create a Spark Scala program. Provides dependencies on Spark and Hive</description>
 
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
