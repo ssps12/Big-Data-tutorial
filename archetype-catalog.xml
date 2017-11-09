@@ -320,6 +320,13 @@
     </archetype>
     <archetype>
       <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>spark-scala-archetype</artifactId>
+      <version>1.0.3</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala program. Provides dependencies on Spark, Spark Streaming, Kafka, and Hive</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
       <artifactId>spark-scala-network-word-count-archetype</artifactId>
       <version>1.0.0</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
