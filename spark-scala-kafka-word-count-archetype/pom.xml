@@ -4,7 +4,7 @@
 
   <groupId>edu.uchicago.mpcs53013</groupId>
   <artifactId>spark-scala-kafka-word-count-archetype</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <packaging>maven-archetype</packaging>
 
   <name>Spark Scala Kafka WordCount Archetype</name>
@@ -12,7 +12,7 @@
   <parent>
     <groupId>edu.uchicago.mpcs53013</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
   </parent>
   <scm>
     <url>https://github.com/mspertus/Big-Data-tutorial</url>

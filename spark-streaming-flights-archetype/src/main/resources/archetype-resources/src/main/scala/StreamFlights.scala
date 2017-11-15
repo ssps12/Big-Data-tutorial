@@ -50,6 +50,7 @@ object StreamFlights {
 
     val kfrs = serializedRecords.map(rec => mapper.readValue(rec, classOf[KafkaFlightRecord]))
 
+    // How to read from an HBase table
     val batchStats = kfrs.map(kfr => {
       val result = table.get(new Get(Bytes.toBytes(kfr.originName + kfr.destinationName)))
       if(result == null || result.getRow() == null)
@@ -71,6 +72,22 @@ object StreamFlights {
         Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("tornado_flights"))).toInt,
         Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("tornado_delays"))).toDouble)
     })
+    
+    // Your homework is to get a speed layer working
+    //
+    // In addition to reading from HBase, you will likely want to
+    // either insert into HBase or increment existing values in HBase
+    // You can do these just like the above, but instead of using a
+    // Get object, you use a Put or Increment objects as documented here:
+    //
+    // http://javadox.com/org.apache.hbase/hbase-client/1.1.2/org/apache/hadoop/hbase/client/Put.html
+    // http://javadox.com/org.apache.hbase/hbase-client/1.1.2/org/apache/hadoop/hbase/client/Increment.html
+    //
+    // One nuisance is that you can only increment by a Long, so
+    // I have rebuilt our tables with Longs instead of Doubles
+    
+    // For now, this just prints the batch data we looked up to the console.
+    // You can drop this once you have written the appropriate HBase code
     batchStats.print()
     // Start the computation
     ssc.start()

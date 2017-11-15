@@ -5,4 +5,4 @@ case class KafkaFlightRecord(
     flight: String,
     originName: String, 
     destinationName: String, 
-    departureDelay:Int)
+    departureDelay:Long)
