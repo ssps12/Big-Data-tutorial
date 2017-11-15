@@ -8,6 +8,7 @@ import java.net.PasswordAuthentication;
 import java.util.Properties;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Random;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -21,13 +22,22 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ${package}.FleetArrivedResponse.FleetArrivedResult.Arrival;
+import ${package}.FlightInfoExResponse.FlightInfoExResult.Flight;
 
 // Inspired by http://stackoverflow.com/questions/14458450/what-to-use-instead-of-org-jboss-resteasy-client-clientrequest
 public class FleetArrivals {
 	static class Task extends TimerTask {
 		private Client client;
+		Random generator = new Random();
+		// We are just going to get a random sampling of flights from a few airlines
+		// Getting all flights would be much more expensive!
+		String[] airlines = new String[] { "DAL", "AAL", "SWA", "UAL" };
+
 		public FleetArrivedResponse getFleetArrivedResponse() {
-			Invocation.Builder bldr = client.target("http://flightxml.flightaware.com/json/FlightXML2/FleetArrived?fleet=AAL&howMany=3&offset=0").request("application/json");
+			Invocation.Builder bldr
+			  = client.target("http://flightxml.flightaware.com/json/FlightXML2/FleetArrived?fleet="
+					          + airlines[generator.nextInt(airlines.length)]
+					          + "&howMany=3&offset=0").request("application/json");
 			try {
 				return bldr.get(FleetArrivedResponse.class);
 			} catch (Exception e) {
@@ -45,7 +55,7 @@ public class FleetArrivals {
 
 		// Adapted from http://hortonworks.com/hadoop-tutorial/simulating-transporting-realtime-events-stream-apache-kafka/
 		Properties props = new Properties();
-		String TOPIC = "flight-events";
+		String TOPIC = "flights";
 		KafkaProducer<String, String> producer;
 		
 		public Task() {
@@ -75,9 +85,16 @@ public class FleetArrivals {
 			for(Arrival arrival : response.getFleetArrivedResult().getArrivals()) {
 				ProducerRecord<String, String> data;
 				try {
+					Flight f
+					  = getFlightInfoExResponse(arrival.getIdent(), arrival.getActualdeparturetime()).getFlightInfoExResult().getFlights()[0];
+					KafkaFlightRecord kfr = new KafkaFlightRecord(
+							f.getIdent(),
+							f.getOrigin().substring(1), 
+							f.getDestination().substring(1), 
+							(f.getActualdeparturetime() - f.getFiledDeparturetime())/60);
 					data = new ProducerRecord<String, String>
 					(TOPIC, 
-					 mapper.writeValueAsString(getFlightInfoExResponse(arrival.getIdent(), arrival.getActualdeparturetime())));
+					 mapper.writeValueAsString(kfr));
 					producer.send(data);
 				} catch (JsonProcessingException e) {
 					// TODO Auto-generated catch block
