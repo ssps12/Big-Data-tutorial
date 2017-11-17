@@ -4,7 +4,7 @@
 
   <groupId>edu.uchicago.mpcs53013</groupId>
   <artifactId>spark-streaming-flights-archetype</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <packaging>maven-archetype</packaging>
 
   <name>Spark Kafka HBase Streaming Flights Archetype</name>

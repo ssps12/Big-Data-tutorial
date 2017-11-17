@@ -17,18 +17,24 @@ object StreamFlights {
   val mapper = new ObjectMapper()
   mapper.registerModule(DefaultScalaModule)
   val hbaseConf: Configuration = HBaseConfiguration.create()
-  hbaseConf.set("hbase.zookeeper.quorum","localhost")
   hbaseConf.set("hbase.zookeeper.property.clientPort", "2181")
+  
+  // Use the following two lines if you are building for the cluster 
+  // hbaseConf.set("hbase.zookeeper.quorum","mpcs530132017test-hgm1-1-20170924181440.c.mpcs53013-2017.internal,mpcs530132017test-hgm2-2-20170924181505.c.mpcs53013-2017.internal,mpcs530132017test-hgm3-3-20170924181529.c.mpcs53013-2017.internal")
+  // hbaseConf.set("zookeeper.znode.parent", "/hbase-unsecure")
+  
+  // Use the following line if you are building for the VM
+  hbaseConf.set("hbase.zookeeper.quorum", "localhost")
+  
   val hbaseConnection = ConnectionFactory.createConnection(hbaseConf)
-  val table = hbaseConnection.getTable(TableName.valueOf("weather_delays_by_route_new"))
+  val table = hbaseConnection.getTable(TableName.valueOf("weather_delays_by_route_8"))
   
   def main(args: Array[String]) {
     if (args.length < 1) {
       System.err.println(s"""
-        |Usage: StreamFlights <brokers>
+        |Usage: StreamFlights <brokers> 
         |  <brokers> is a list of one or more Kafka brokers
-        |  <topics> is a list of one or more kafka topics to consume from
-        |
+        | 
         """.stripMargin)
       System.exit(1)
     }
