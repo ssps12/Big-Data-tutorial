@@ -7,4 +7,6 @@ case class WeatherReport(
     snow: Boolean,
     hail: Boolean,
     thunder: Boolean,
-    tornado: Boolean)
+    tornado: Boolean) {
+  def clear = !fog && !rain && !snow && !hail && !thunder && !tornado
+}

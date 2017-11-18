@@ -63,20 +63,20 @@ object StreamFlights {
         RouteStats(kfr.originName, kfr.destinationName)
       else
         RouteStats(kfr.originName, kfr.destinationName,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("clear_flights"))).toInt,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("clear_delays"))).toDouble,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("fog_flights"))).toInt,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("fog_delays"))).toDouble,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("rain_flights"))).toInt,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("rain_delays"))).toDouble,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("snow_flights"))).toInt,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("snow_delays"))).toDouble,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("hail_flights"))).toInt,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("hail_delays"))).toDouble,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("thunder_flights"))).toInt,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("thunder_delays"))).toDouble,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("tornado_flights"))).toInt,
-        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("tornado_delays"))).toDouble)
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("clear_flights"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("clear_delays"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("fog_flights"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("fog_delays"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("rain_flights"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("rain_delays"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("snow_flights"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("snow_delays"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("hail_flights"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("hail_delays"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("thunder_flights"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("thunder_delays"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("tornado_flights"))).toLong,
+        Bytes.toString(result.getValue(Bytes.toBytes("delay"), Bytes.toBytes("tornado_delays"))).toLong)
     })
     
     // Your homework is to get a speed layer working
