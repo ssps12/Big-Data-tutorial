@@ -22,11 +22,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.uchicago.mpcs53013</groupId>
   <artifactId>hadoop-thrift-archetype</artifactId>
-  <version>1.1.0</version>
+  <version>4.0.0</version>
   <packaging>maven-archetype</packaging>
   <name>Thrift Archetype</name>
   <url>http://edu.uchicago.mpcs53013</url>
-
+  <description>Creates program that serializes thrift students to HDFS sequence files. For an example, see hadoo-thrift-example-archetype</description>
   <parent>
     <groupId>edu.uchicago.mpcs53013</groupId>
     <artifactId>parent</artifactId>
