@@ -423,7 +423,6 @@
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Create a Spark Scala streaming program that reads simulated weather reports from Kafka and stores them in the latest_weather table in HBase</description>
     </archetype>
-  </archetypes>
   <!-- 2018 -->
     <archetype>
       <groupId>edu.uchicago.mpcs53013</groupId>
@@ -439,5 +438,6 @@
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Example program to write thrift from local file system</description>
     </archetype>
+  </archetypes>
 
 </archetype-catalog>
