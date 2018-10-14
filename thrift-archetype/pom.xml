@@ -22,7 +22,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.uchicago.mpcs53013</groupId>
   <artifactId>thrift-archetype</artifactId>
-  <version>1.4.0</version>
+  <version>4.0.0</version>
   <packaging>maven-archetype</packaging>
   <name>Thrift Archetype</name>
   <url>http://edu.uchicago.mpcs53013</url>

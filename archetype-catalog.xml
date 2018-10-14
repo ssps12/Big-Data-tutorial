@@ -424,4 +424,20 @@
       <description>Create a Spark Scala streaming program that reads simulated weather reports from Kafka and stores them in the latest_weather table in HBase</description>
     </archetype>
   </archetypes>
+  <!-- 2018 -->
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-archetype</artifactId>
+      <version>4.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Write thrift to local file system. See thrift-example-archetype for an example</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>thrift-example-archetype</artifactId>
+      <version>4.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Example program to write thrift from local file system</description>
+    </archetype>
+
 </archetype-catalog>
