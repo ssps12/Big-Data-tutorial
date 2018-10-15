@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.uchicago.mpcs53013</groupId>
   <artifactId>word-count-archetype</artifactId>
-  <version>2.1.0</version>
+  <version>4.0.0</version>
   <packaging>maven-archetype</packaging>
   <name>Hadoop WordCount Archetype</name>
   <url>http://edu.uchicago.mpcs53013</url>
