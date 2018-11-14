@@ -481,7 +481,6 @@
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Ingest real-time flight data from FlightAware into a Kafka topic</description>
     </archetype>
-
   </archetypes>
 
 </archetype-catalog>
