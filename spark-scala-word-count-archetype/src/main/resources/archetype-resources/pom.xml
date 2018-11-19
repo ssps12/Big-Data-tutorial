@@ -14,7 +14,7 @@
       <plugin>
 	<groupId>net.alchim31.maven</groupId>
 	<artifactId>scala-maven-plugin</artifactId>
-        <version>3.3.1</version>
+        <version>3.4.4</version>
 	<executions>
 	  <execution>
 	    <id>compile</id>
@@ -41,8 +41,8 @@
       <plugin>
 	<artifactId>maven-compiler-plugin</artifactId>
 	<configuration>
-	  <source>1.7</source>
-	  <target>1.7</target>
+	  <source>1.8</source>
+	  <target>1.8</target>
 	</configuration>
       </plugin>
       <!-- for fatjar -->
@@ -115,8 +115,8 @@
   <dependencies>
     <dependency>
       <groupId>org.apache.spark</groupId>
-      <artifactId>spark-core_2.10</artifactId>
-      <version>1.6.3</version>
+      <artifactId>spark-core_2.11</artifactId>
+      <version>2.4.0</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
