@@ -46,14 +46,22 @@ object StreamWeather {
     val ssc = new StreamingContext(sparkConf, Seconds(2))
 
     // Create direct kafka stream with brokers and topics
-    val topicsSet = Set[String]("weather-reports")
-    val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
-    val messages = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
-      ssc, kafkaParams, topicsSet)
+    val topics = Array("weather-reports")
+    val kafkaParams = Map[String, Object](
+        "bootstrap.servers" -> brokers,
+        "key.deserializer" -> classOf[StringDeserializer],
+        "value.deserializer" -> classOf[StringDeserializer],
+        "group.id" -> "use_a_separate_group_id_for_each_stream",
+        "auto.offset.reset" -> "latest",
+        "enable.auto.commit" -> (false: java.lang.Boolean)
+        )
+    val messages = KafkaUtils.createDirectStream[String, String](
+      ssc, PreferConsistent,
+      Subscribe[String, String](topics, kafkaParams))
 
     // Get the lines, split them into words, count the words and print
-    val serializedRecords = messages.map(_._2);
-
+    val serializedRecords = messages.map(_.value);
+    val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
     val reports = serializedRecords.map(rec => mapper.readValue(rec, classOf[WeatherReport]))
 
     // How to write to an HBase table
@@ -69,18 +77,6 @@ object StreamWeather {
       table.put(put)
     })
     batchStats.print()
-    // Your homework is to get a speed layer working
-    //
-    // In addition to reading from HBase, you will likely want to
-    // either insert into HBase or increment existing values in HBase
-    // You can do these just like the above, but instead of using a
-    // Get object, you use a Put or Increment objects as documented here:
-    //
-    // http://javadox.com/org.apache.hbase/hbase-client/1.1.2/org/apache/hadoop/hbase/client/Put.html
-    // http://javadox.com/org.apache.hbase/hbase-client/1.1.2/org/apache/hadoop/hbase/client/Increment.html
-    //
-    // One nuisance is that you can only increment by a Long, so
-    // I have rebuilt our tables with Longs instead of Doubles
     
     // Start the computation
     ssc.start()

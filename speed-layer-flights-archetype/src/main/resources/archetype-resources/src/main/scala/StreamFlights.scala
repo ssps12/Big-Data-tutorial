@@ -29,8 +29,7 @@ object StreamFlights {
   hbaseConf.set("hbase.zookeeper.quorum", "localhost")
   
   val hbaseConnection = ConnectionFactory.createConnection(hbaseConf)
-  val speedDelaysByRoute = hbaseConnection.getTable(TableName.valueOf("speed_weather_delays_by_route"))
-  val swdr2 = hbaseConnection.getTable(TableName.valueOf("swdr2"))
+  val weatherDelaysByRoute = hbaseConnection.getTable(TableName.valueOf("weather_delays_by_route"))
   val latestWeather = hbaseConnection.getTable(TableName.valueOf("latest_weather"))
   
   def getLatestWeather(station: String) = {
@@ -83,8 +82,7 @@ object StreamFlights {
       inc.addColumn(Bytes.toBytes("delay"), Bytes.toBytes("tornado_flights"), 1)
       inc.addColumn(Bytes.toBytes("delay"), Bytes.toBytes("tornado_delays"), kfr.departureDelay)
     }
-    speedDelaysByRoute.increment(inc)
-    swdr2.increment(inc)
+    weatherDelaysByRoute.increment(inc)
     return "Updated speed layer for flight from " + kfr.originName + " to " + kfr.destinationName
 }
   
