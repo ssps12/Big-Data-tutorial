@@ -495,6 +495,13 @@
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Create a Spark Scala streaming program that reads flights from Kafka and looks them up in HBase</description>
     </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>speed-layer-flights-archetype</artifactId>
+      <version>4.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala streaming program that reads flights from Kafka, looks up corresponding weather information and updates speed layer tables in HBase</description>
+    </archetype>
   </archetypes>
 
 </archetype-catalog>

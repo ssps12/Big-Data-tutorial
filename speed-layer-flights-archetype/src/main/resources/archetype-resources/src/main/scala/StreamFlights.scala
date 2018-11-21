@@ -1,7 +1,8 @@
-import kafka.serializer.StringDecoder
-
+import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.streaming._
-import org.apache.spark.streaming.kafka._
+import org.apache.spark.streaming.kafka010._
+import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
+import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.SparkConf
 import com.fasterxml.jackson.databind.{ DeserializationFeature, ObjectMapper }
 import com.fasterxml.jackson.module.scala.experimental.ScalaObjectMapper
@@ -104,13 +105,21 @@ object StreamFlights {
     val ssc = new StreamingContext(sparkConf, Seconds(2))
 
     // Create direct kafka stream with brokers and topics
-    val topicsSet = Set[String]("flights")
-    val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
-    val messages = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
-      ssc, kafkaParams, topicsSet)
+    val topics = Array("flights")
+    val kafkaParams = Map[String, Object](
+        "bootstrap.servers" -> brokers,
+        "key.deserializer" -> classOf[StringDeserializer],
+        "value.deserializer" -> classOf[StringDeserializer],
+        "group.id" -> "use_a_separate_group_id_for_each_stream",
+        "auto.offset.reset" -> "latest",
+        "enable.auto.commit" -> (false: java.lang.Boolean)
+        )
+    val messages = KafkaUtils.createDirectStream[String, String](
+      ssc, PreferConsistent,
+      Subscribe[String, String](topics, kafkaParams))
 
     // Get the lines, split them into words, count the words and print
-    val serializedRecords = messages.map(_._2);
+    val serializedRecords = messages.map(_.value);
 
     val kfrs = serializedRecords.map(rec => mapper.readValue(rec, classOf[KafkaFlightRecord]))
 
