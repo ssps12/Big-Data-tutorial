@@ -1,7 +1,8 @@
-import kafka.serializer.StringDecoder
-
+import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.streaming._
-import org.apache.spark.streaming.kafka._
+import org.apache.spark.streaming.kafka010._
+import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
+import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
 import org.apache.spark.SparkConf
 import com.fasterxml.jackson.databind.{ DeserializationFeature, ObjectMapper }
 import com.fasterxml.jackson.module.scala.experimental.ScalaObjectMapper
@@ -61,7 +62,6 @@ object StreamWeather {
 
     // Get the lines, split them into words, count the words and print
     val serializedRecords = messages.map(_.value);
-    val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
     val reports = serializedRecords.map(rec => mapper.readValue(rec, classOf[WeatherReport]))
 
     // How to write to an HBase table
