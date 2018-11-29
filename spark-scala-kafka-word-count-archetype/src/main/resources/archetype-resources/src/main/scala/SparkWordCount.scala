@@ -16,12 +16,9 @@
  */
 
 // scalastyle:off println
-
-import org.apache.kafka.common.serialization.StringDeserializer
+import kafka.serializer.StringDecoder
 import org.apache.spark.streaming._
-import org.apache.spark.streaming.kafka010._
-import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
-import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
+import org.apache.spark.streaming.kafka._
 import org.apache.spark.SparkConf
 
 /**
@@ -52,20 +49,13 @@ object SparkWordCount {
 
     // Create direct kafka stream with brokers and topics
     val topicsArr = Array(topics)
-    val kafkaParams = Map[String, Object](
-        "bootstrap.servers" -> brokers,
-        "key.deserializer" -> classOf[StringDeserializer],
-        "value.deserializer" -> classOf[StringDeserializer],
-        "group.id" -> "use_a_separate_group_id_for_each_stream",
-        "auto.offset.reset" -> "latest",
-        "enable.auto.commit" -> (false: java.lang.Boolean)
-        )
-    val messages = KafkaUtils.createDirectStream[String, String](
-      ssc, PreferConsistent,
-      Subscribe[String, String](topicsArr, kafkaParams))
-
+      val topicsSet = topics.split(",").toSet
+    val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
+    val messages = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
+      ssc, kafkaParams, topicsSet)
+      
     // Get the lines, split them into words, count the words and print
-    val lines = messages.map(_.value);
+    val lines = messages.map(_._2);
     val words = lines.flatMap(_.split(" "))
     val wordCounts = words.map(x => (x, 1L)).reduceByKey(_ + _)
     wordCounts.print()

@@ -511,6 +511,13 @@
     </archetype>
     <archetype>
       <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>speed-layer-flights-archetype</artifactId>
+      <version>4.0.3</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala streaming program that reads flights from Kafka, looks up corresponding weather information and updates speed layer tables in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
       <artifactId>spark-scala-kafka-word-count-archetype</artifactId>
       <version>4.0.0</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
@@ -520,6 +527,13 @@
       <groupId>edu.uchicago.mpcs53013</groupId>
       <artifactId>spark-scala-kafka-word-count-archetype</artifactId>
       <version>4.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala streaming WordCount program that reads from Kafka</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>spark-scala-kafka-word-count-archetype</artifactId>
+      <version>4.0.2</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Create a Spark Scala streaming WordCount program that reads from Kafka</description>
     </archetype>
@@ -534,6 +548,20 @@
       <groupId>edu.uchicago.mpcs53013</groupId>
       <artifactId>speed-layer-weather-archetype</artifactId>
       <version>4.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala streaming program that reads simulated weather reports from Kafka and stores them in the latest_weather table in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>speed-layer-weather-archetype</artifactId>
+      <version>4.0.2</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala streaming program that reads simulated weather reports from Kafka and stores them in the latest_weather table in HBase</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>speed-layer-weather-archetype</artifactId>
+      <version>4.0.3</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Create a Spark Scala streaming program that reads simulated weather reports from Kafka and stores them in the latest_weather table in HBase</description>
     </archetype>
@@ -548,6 +576,13 @@
       <groupId>edu.uchicago.mpcs53013</groupId>
       <artifactId>spark-scala-archetype</artifactId>
       <version>4.0.1</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Spark Scala program. Provides dependencies on Spark, Spark Streaming, Kafka, Hive, and Machine Learning</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>spark-scala-archetype</artifactId>
+      <version>4.0.2</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
       <description>Create a Spark Scala program. Provides dependencies on Spark, Spark Streaming, Kafka, Hive, and Machine Learning</description>
     </archetype>

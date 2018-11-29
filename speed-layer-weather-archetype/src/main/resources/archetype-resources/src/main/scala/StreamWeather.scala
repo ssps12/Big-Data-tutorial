@@ -1,8 +1,6 @@
-import org.apache.kafka.common.serialization.StringDeserializer
+import kafka.serializer.StringDecoder
 import org.apache.spark.streaming._
-import org.apache.spark.streaming.kafka010._
-import org.apache.spark.streaming.kafka010.LocationStrategies.PreferConsistent
-import org.apache.spark.streaming.kafka010.ConsumerStrategies.Subscribe
+import org.apache.spark.streaming.kafka._
 import org.apache.spark.SparkConf
 import com.fasterxml.jackson.databind.{ DeserializationFeature, ObjectMapper }
 import com.fasterxml.jackson.module.scala.experimental.ScalaObjectMapper
@@ -21,7 +19,7 @@ object StreamWeather {
   hbaseConf.set("hbase.zookeeper.property.clientPort", "2181")
   
   // Use the following two lines if you are building for the cluster 
-  // hbaseConf.set("hbase.zookeeper.quorum","mpcs530132017test-hgm1-1-20170924181440.c.mpcs53013-2017.internal,mpcs530132017test-hgm2-2-20170924181505.c.mpcs53013-2017.internal,mpcs530132017test-hgm3-3-20170924181529.c.mpcs53013-2017.internal")
+  // hbaseConf.set("hbase.zookeeper.quorum","class-m-0-20181017030211.us-central1-a.c.mpcs53013-2018.internal")
   // hbaseConf.set("zookeeper.znode.parent", "/hbase-unsecure")
   
   // Use the following line if you are building for the VM
@@ -47,21 +45,14 @@ object StreamWeather {
     val ssc = new StreamingContext(sparkConf, Seconds(2))
 
     // Create direct kafka stream with brokers and topics
-    val topics = Array("weather-reports")
-    val kafkaParams = Map[String, Object](
-        "bootstrap.servers" -> brokers,
-        "key.deserializer" -> classOf[StringDeserializer],
-        "value.deserializer" -> classOf[StringDeserializer],
-        "group.id" -> "use_a_separate_group_id_for_each_stream",
-        "auto.offset.reset" -> "latest",
-        "enable.auto.commit" -> (false: java.lang.Boolean)
-        )
-    val messages = KafkaUtils.createDirectStream[String, String](
-      ssc, PreferConsistent,
-      Subscribe[String, String](topics, kafkaParams))
+    val topicsSet = Set("weather-reports")
+    // Create direct kafka stream with brokers and topics
+    val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
+    val messages = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
+      ssc, kafkaParams, topicsSet)
 
     // Get the lines, split them into words, count the words and print
-    val serializedRecords = messages.map(_.value);
+    val serializedRecords = messages.map(_._2);
     val reports = serializedRecords.map(rec => mapper.readValue(rec, classOf[WeatherReport]))
 
     // How to write to an HBase table
