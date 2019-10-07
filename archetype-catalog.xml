@@ -447,6 +447,13 @@
     </archetype>
     <archetype>
       <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hadoop-archetype</artifactId>
+      <version>5.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create a Hadoop client application including an UberJar</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
       <artifactId>hadoop-thrift-archetype</artifactId>
       <version>4.0.0</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
