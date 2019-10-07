@@ -1,5 +1,4 @@
 import kafka.serializer.StringDecoder
-
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.kafka._
 import org.apache.spark.SparkConf
@@ -20,7 +19,7 @@ object StreamWeather {
   hbaseConf.set("hbase.zookeeper.property.clientPort", "2181")
   
   // Use the following two lines if you are building for the cluster 
-  // hbaseConf.set("hbase.zookeeper.quorum","mpcs530132017test-hgm1-1-20170924181440.c.mpcs53013-2017.internal,mpcs530132017test-hgm2-2-20170924181505.c.mpcs53013-2017.internal,mpcs530132017test-hgm3-3-20170924181529.c.mpcs53013-2017.internal")
+  // hbaseConf.set("hbase.zookeeper.quorum","class-m-0-20181017030211.us-central1-a.c.mpcs53013-2018.internal")
   // hbaseConf.set("zookeeper.znode.parent", "/hbase-unsecure")
   
   // Use the following line if you are building for the VM
@@ -46,14 +45,14 @@ object StreamWeather {
     val ssc = new StreamingContext(sparkConf, Seconds(2))
 
     // Create direct kafka stream with brokers and topics
-    val topicsSet = Set[String]("weather-reports")
+    val topicsSet = Set("weather-reports")
+    // Create direct kafka stream with brokers and topics
     val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
     val messages = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
       ssc, kafkaParams, topicsSet)
 
     // Get the lines, split them into words, count the words and print
     val serializedRecords = messages.map(_._2);
-
     val reports = serializedRecords.map(rec => mapper.readValue(rec, classOf[WeatherReport]))
 
     // How to write to an HBase table
@@ -69,18 +68,6 @@ object StreamWeather {
       table.put(put)
     })
     batchStats.print()
-    // Your homework is to get a speed layer working
-    //
-    // In addition to reading from HBase, you will likely want to
-    // either insert into HBase or increment existing values in HBase
-    // You can do these just like the above, but instead of using a
-    // Get object, you use a Put or Increment objects as documented here:
-    //
-    // http://javadox.com/org.apache.hbase/hbase-client/1.1.2/org/apache/hadoop/hbase/client/Put.html
-    // http://javadox.com/org.apache.hbase/hbase-client/1.1.2/org/apache/hadoop/hbase/client/Increment.html
-    //
-    // One nuisance is that you can only increment by a Long, so
-    // I have rebuilt our tables with Longs instead of Doubles
     
     // Start the computation
     ssc.start()

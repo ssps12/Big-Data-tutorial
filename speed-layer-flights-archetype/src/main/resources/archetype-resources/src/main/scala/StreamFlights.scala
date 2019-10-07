@@ -1,5 +1,4 @@
 import kafka.serializer.StringDecoder
-
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.kafka._
 import org.apache.spark.SparkConf
@@ -21,15 +20,14 @@ object StreamFlights {
   hbaseConf.set("hbase.zookeeper.property.clientPort", "2181")
   
   // Use the following two lines if you are building for the cluster 
-  // hbaseConf.set("hbase.zookeeper.quorum","mpcs530132017test-hgm1-1-20170924181440.c.mpcs53013-2017.internal,mpcs530132017test-hgm2-2-20170924181505.c.mpcs53013-2017.internal,mpcs530132017test-hgm3-3-20170924181529.c.mpcs53013-2017.internal")
+  // hbaseConf.set("hbase.zookeeper.quorum","class-m-0-20181017030211.us-central1-a.c.mpcs53013-2018.internal")
   // hbaseConf.set("zookeeper.znode.parent", "/hbase-unsecure")
   
   // Use the following line if you are building for the VM
   hbaseConf.set("hbase.zookeeper.quorum", "localhost")
   
   val hbaseConnection = ConnectionFactory.createConnection(hbaseConf)
-  val speedDelaysByRoute = hbaseConnection.getTable(TableName.valueOf("speed_weather_delays_by_route"))
-  val swdr2 = hbaseConnection.getTable(TableName.valueOf("swdr2"))
+  val weatherDelaysByRoute = hbaseConnection.getTable(TableName.valueOf("weather_delays_by_route"))
   val latestWeather = hbaseConnection.getTable(TableName.valueOf("latest_weather"))
   
   def getLatestWeather(station: String) = {
@@ -82,8 +80,7 @@ object StreamFlights {
       inc.addColumn(Bytes.toBytes("delay"), Bytes.toBytes("tornado_flights"), 1)
       inc.addColumn(Bytes.toBytes("delay"), Bytes.toBytes("tornado_delays"), kfr.departureDelay)
     }
-    speedDelaysByRoute.increment(inc)
-    swdr2.increment(inc)
+    weatherDelaysByRoute.increment(inc)
     return "Updated speed layer for flight from " + kfr.originName + " to " + kfr.destinationName
 }
   
@@ -104,11 +101,12 @@ object StreamFlights {
     val ssc = new StreamingContext(sparkConf, Seconds(2))
 
     // Create direct kafka stream with brokers and topics
-    val topicsSet = Set[String]("flights")
+    val topicsSet = Set("flights")
+    // Create direct kafka stream with brokers and topics
     val kafkaParams = Map[String, String]("metadata.broker.list" -> brokers)
     val messages = KafkaUtils.createDirectStream[String, String, StringDecoder, StringDecoder](
       ssc, kafkaParams, topicsSet)
-
+   
     // Get the lines, split them into words, count the words and print
     val serializedRecords = messages.map(_._2);
 
