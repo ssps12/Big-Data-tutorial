@@ -457,7 +457,14 @@
       <artifactId>hadoop-thrift-archetype</artifactId>
       <version>4.0.0</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
-      <description>Creates program that serializes thrift students to HDFS sequence files. For an example, see hadoo-thrift-example-archetype</description>
+      <description>Creates program that serializes thrift students to HDFS sequence files. For an example, see hadoop-thrift-example-archetype</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>hadoop-thrift-archetype</artifactId>
+      <version>5.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Creates program that serializes thrift students to HDFS sequence files. For an example, see hadoop-thrift-example-archetype</description>
     </archetype>
     <archetype>
       <groupId>edu.uchicago.mpcs53013</groupId>
