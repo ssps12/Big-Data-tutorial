@@ -496,6 +496,13 @@
     </archetype>
     <archetype>
       <groupId>edu.uchicago.mpcs53013</groupId>
+      <artifactId>word-count-archetype</artifactId>
+      <version>5.0.0</version>
+      <repository>https://oss.sonatype.org/content/repositories/releases</repository>
+      <description>Create the WordCount example from the Hadoop docs</description>
+    </archetype>
+    <archetype>
+      <groupId>edu.uchicago.mpcs53013</groupId>
       <artifactId>hdfs-ingest-weather-archetype</artifactId>
       <version>4.0.0</version>
       <repository>https://oss.sonatype.org/content/repositories/releases</repository>
